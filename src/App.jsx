@@ -149,7 +149,7 @@ function App() {
   useEffect(() => {
     const checkStatus = async () => {
       try {
-        const res = await fetch('http://127.0.0.1:5000/api/status');
+        const res = await fetch('https://emosense-ai-vbr7.onrender.com/api/status');
         if (res.ok) {
           const data = await res.json();
           if (data.status === 'ready') {
@@ -278,7 +278,8 @@ function App() {
             const base64Jpg = canvas.toDataURL('image/jpeg', 0.85);
 
             try {
-              const response = await fetch('http://127.0.0.1:5000/api/analyze', {
+          
+const response = await fetch('https://emosense-ai-vbr7.onrender.com/api/analyze', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ image: base64Jpg })
